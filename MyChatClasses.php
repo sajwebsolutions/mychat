@@ -11,6 +11,39 @@
         to make it error free and according to the requirements.
     */
 
+
+//DB Connection - Demo
+class Database {
+
+    private $host = 'localhost';
+    private $username = 'username';
+    private $password = 'password';
+    private $database = 'database';
+    private $conn;
+
+
+    //Construct
+    public function __construct()
+    {
+        $this->conn     =       new mysqli($this->host, $this->username, $this->password, $this->database);
+
+
+        //Connection
+        if (mysqli_connect_error())
+        {
+            die('Connection Error ('.mysqli_connect_errno().') '.mysqli_connect_error());
+        }
+    }
+
+
+    //Get Connection
+    public function getConnection()
+    {
+        return $this->conn;
+    }
+}
+
+
 // User class
 class User
 {
